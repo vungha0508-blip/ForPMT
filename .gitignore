@@ -1,11 +1,3 @@
-# Images and Videos (you can add these locally)
-images/*.jpg
-images/*.png
-images/*.jpeg
-videos/*.mp4
-videos/*.webm
-videos/*.mov
-
 # System files
 .DS_Store
 Thumbs.db
