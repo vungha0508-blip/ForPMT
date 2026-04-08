@@ -331,6 +331,8 @@ h1 {
 /* ===== WISHES/BLESSINGS SECTION ===== */
 .wishes-container {
     margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
     max-width: 800px;
     width: 90%;
     position: relative;
