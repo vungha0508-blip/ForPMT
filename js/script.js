@@ -4,17 +4,23 @@ function showSection(sectionId) {
     document.querySelectorAll('section').forEach(section => {
         section.classList.add('hidden-section');
     });
-    document.getElementById(sectionId).classList.remove('hidden-section');
 
+    // Show new section with animation
+    const newSection = document.getElementById(sectionId);
+    newSection.classList.remove('hidden-section');
+
+    // Trigger reflow to restart animation
+    void newSection.offsetWidth;
+
+    // Update active nav link
     document.querySelectorAll('nav a').forEach(link => {
         link.classList.remove('active');
     });
-    event.target.classList.add('active');
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
 }
 
-function celebrateBirthday() {
-    showSection("gallery-section");
-}
 
 function createConfetti() {
     const confetti = document.createElement('div');
