@@ -3,140 +3,65 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Ai đẹp trai nhất?</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Segoe UI, sans-serif;
-        }
-
-        body {
-            height: 100vh;
-            background: radial-gradient(circle at top, #2a003f, #000);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            color: white;
-        }
-
-        .container {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        button {
-            padding: 18px 40px;
-            font-size: 20px;
-            border: none;
-            border-radius: 40px;
-            cursor: pointer;
-            background: linear-gradient(90deg, #a100ff, #ff00c8);
-            color: white;
-            box-shadow: 0 0 20px #a100ff;
-            transition: 0.4s;
-        }
-
-        button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 40px #ff00c8;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        img {
-            width: 260px;
-            border-radius: 20px;
-            margin-top: 30px;
-            box-shadow: 0 0 40px #a100ff;
-            animation: fadeIn 1.5s ease forwards;
-        }
-
-        h1 {
-            margin-top: 25px;
-            font-size: 30px;
-            background: linear-gradient(90deg, #ff00c8, #a100ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeIn 2s ease forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .heart {
-            position: absolute;
-            bottom: -50px;
-            color: #ff00c8;
-            font-size: 20px;
-            animation: float 6s linear infinite;
-            opacity: 0.8;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) scale(1);
-            }
-
-            100% {
-                transform: translateY(-110vh) scale(1.5);
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phạm Minh Thuận - Birthday & Gallery</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
+    <!-- HEADER NAVIGATION -->
+    <header>
+        <nav>
+            <a onclick="showSection('birthday-section')">Sinh Nhật</a>
+            <a onclick="showSection('favorite-section')">Người Yêu Thích</a>
+            <a onclick="showSection('gallery-section')">Ảnh nè =))</a>
+            <a onclick="showSection('video-section')">Video đó :)))</a>
+        </nav>
+    </header>
 
-    <div class="container">
-        <button id="btn">Bấm vào để biết ai đẹp trai nhất 🔥</button>
-
-        <div id="result" class="hidden">
-            <img src="PMT.jpg">
-            <h1>"Phạm Minh Thuận chứ ai =)))"</h1>
+    <!-- BIRTHDAY SECTION -->
+    <section id="birthday-section">
+        <div class="birthday-container">
+            <h1>Chúc Mừng Sinh Nhật</h1>
+            <p>Phạm Minh Thuận</p>
+            <div class="birthday-date">
+                Ngày sinh: 09/04/2004
+            </div>
+            <p style="font-size: 18px; margin-top: 30px; font-weight: 400;">PN gửi: "Nay sinh nhật của 1 anh chàng vừa
+                cute, học giỏi, hòa
+                động,
+                tốt bụng, tuyệt vời ... Hẹ hẹ, hết lời khen òi, nói chung là chúc sinh nhật"</p>
+            <button onclick="celebrateBirthday()">Xem thêm</button>
         </div>
-    </div>
+    </section>
 
-    <script>
-        var btn = document.getElementById("btn");
-        var result = document.getElementById("result");
+    <!-- FAVORITE PERSON SECTION -->
+    <section id="favorite-section" class="hidden-section">
+        <div class="favorite-container">
+            <button id="favorite-btn" onclick="showFavorite()">Bấm vào để biết ai đẹp trai nhất</button>
 
-        btn.onclick = function () {
-            btn.style.display = "none";
-            result.classList.remove("hidden");
-            startHearts();
-        };
+            <div id="favorite-result" class="hidden">
+                <img id="favorite-img" src="PMT.jpg" alt="Phạm Minh Thuận">
+                <h1>"Phạm Minh Thuận chứ ai =)))"</h1>
+            </div>
+        </div>
+    </section>
 
-        function startHearts() {
-            setInterval(function () {
-                var heart = document.createElement("div");
-                heart.className = "heart";
-                heart.innerHTML = "💜";
-                heart.style.left = Math.random() * 100 + "vw";
-                heart.style.fontSize = (15 + Math.random() * 30) + "px";
-                heart.style.animationDuration = (4 + Math.random() * 4) + "s";
-                document.body.appendChild(heart);
-                setTimeout(function () {
-                    heart.remove();
-                }, 7000);
-            }, 200);
-        }
-    </script>
+    <!-- IMAGE GALLERY SECTION -->
+    <section id="gallery-section" class="hidden-section">
+        <h2 class="gallery-title">Ảnh nè =))</h2>
+        <div class="gallery-grid" id="gallery-grid">
+        </div>
+    </section>
 
+    <!-- VIDEO SECTION -->
+    <section id="video-section" class="hidden-section">
+        <h2 class="video-title">Video đó :)</h2>
+        <div class="video-grid" id="video-grid">
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
